@@ -48,6 +48,11 @@ section{padding-top:30px;margin-top:30px;border-top:1px solid var(--line)}
 .summary li{margin-bottom:6px}
 .summary li:last-child{margin-bottom:0}
 .mono{font-family:var(--mono);font-size:.88em}
+.live{font-size:.94rem;color:var(--muted);margin:14px 0 0;padding-left:12px;border-left:3px solid var(--accent)}
+.log{list-style:none;padding:0;margin:0}
+.log li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:4px 16px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.log time{font-family:var(--mono);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
+@media (max-width:480px){.log li{grid-template-columns:1fr}}
 
 /* tables */
 .tbl{overflow-x:auto;margin:6px 0 14px}
@@ -74,9 +79,9 @@ body{margin:0}
 
 <div class="outer">
 <article class="paper">
-  <p class="tagline">Most websites are made for thousands of eyes. Scrollsites are a bespoke webpage built for an audience of one. This one is for PCN Leadership.</p>
   <h1>Lexacom and our clinical safety case</h1>
-  <div class="meta"><span>Weymouth &amp; Portland PCN</span><span>Briefing</span><span>3 November 2026</span></div>
+  <div class="meta"><span>Weymouth &amp; Portland PCN</span><span>Live briefing</span><span>Last updated 3 November 2026</span></div>
+  <p class="live">This is a live page. Mark will keep it up to date as things move, so this link always shows where we are. Changes are listed in the update log at the end.</p>
 
   <div class="summary">
     <h2>Summary</h2>
@@ -159,6 +164,13 @@ body{margin:0}
       <li>Go live one practice at a time, starting with Royal Manor and Weymouth Bay, with training and patient materials in place.</li>
       <li>Scope Lexacom for PCN services, starting with what the teams need from the output.</li>
     </ol>
+  </section>
+
+  <section>
+    <h2><span class="n">7</span>Update log</h2>
+    <ul class="log">
+      <li><time datetime="2026-11-03">3 Nov 2026</time><span>First version shared with PCN Leadership.</span></li>
+    </ul>
   </section>
 </article>
 <footer>Prepared by Mark Winterburn, Digital &amp; Transformation Lead, Weymouth &amp; Portland PCN.</footer>
