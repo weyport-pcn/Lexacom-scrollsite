@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>W&amp;P Lexacom Readiness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,600..800&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a briefing paper. One reading column, numbered sections, tables where the content is tabular. */
+:root{color-scheme:light;
+  --bg:#F3F6F7; --paper:#FFFFFF; --ink:#13232D; --muted:#55666F; --line:#D5DEE2;
+  --accent:#0B6B70; --accent-soft:#E3F0F0;
+  --ok:#2F7D46; --warn:#9A6400; --idle:#6B7880;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1A20; --paper:#16242B; --ink:#E4ECEF; --muted:#9AAAB2; --line:#2A3B44;
+  --accent:#5CC3C6; --accent-soft:#163A3D;
+  --ok:#7BCB92; --warn:#E5B35C; --idle:#9AAAB2;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1A20; --paper:#16242B; --ink:#E4ECEF; --muted:#9AAAB2; --line:#2A3B44;
+  --accent:#5CC3C6; --accent-soft:#163A3D;
+  --ok:#7BCB92; --warn:#E5B35C; --idle:#9AAAB2;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.6}
+.outer{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 48px}
+.paper{max-width:780px;margin:0 auto;background:var(--paper);border:1px solid var(--line);padding:clamp(22px,5vw,56px)}
+h1,h2,h3{font-family:var(--display);font-stretch:88%;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:800}
+h2{font-size:1.35rem;font-weight:750;display:flex;gap:12px;align-items:baseline;margin-bottom:12px}
+h2 .n{font-family:var(--mono);font-size:.8rem;color:var(--accent);font-weight:500}
+h3{font-size:1.02rem;font-weight:700;margin:22px 0 8px}
+p{margin:0 0 12px;max-width:66ch}
+ul.plain{margin:0 0 12px;padding-left:20px}
+ul.plain li{margin-bottom:6px}
+.tagline{font-size:.85rem;color:var(--muted);margin:0 0 28px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.meta{display:flex;flex-wrap:wrap;gap:4px 20px;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+section{padding-top:30px;margin-top:30px;border-top:1px solid var(--line)}
+.summary{background:var(--accent-soft);padding:18px 20px;margin-top:24px}
+.summary h2{margin-bottom:8px}
+.summary ul{margin:0;padding-left:20px}
+.summary li{margin-bottom:6px}
+.summary li:last-child{margin-bottom:0}
+.mono{font-family:var(--mono);font-size:.88em}
+
+/* tables */
+.tbl{overflow-x:auto;margin:6px 0 14px}
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:500;padding:8px 10px;border-bottom:2px solid var(--line)}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{font-weight:600;min-width:150px}
+.st{white-space:nowrap;font-weight:600}
+.st::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px;background:currentColor}
+.st.ok{color:var(--ok)} .st.warn{color:var(--warn)} .st.idle{color:var(--idle)}
+
+.rule{border:2px solid var(--accent);padding:16px 18px;margin:16px 0}
+.rule p{margin:0;font-weight:600}
+.rule .why{font-weight:400;color:var(--muted);margin-top:6px;font-size:.94rem}
+
+ol.steps{margin:0;padding-left:22px}
+ol.steps li{margin-bottom:8px;padding-left:4px}
+
+footer{max-width:780px;margin:16px auto 0;font-size:.85rem;color:var(--muted)}
+body{margin:0}
+</style>
+</head>
+<body>
+
+<div class="outer">
+<article class="paper">
+  <p class="tagline">Most websites are made for thousands of eyes. Scrollsites are a bespoke webpage built for an audience of one. This one is for PCN Leadership.</p>
+  <h1>Lexacom and our clinical safety case</h1>
+  <div class="meta"><span>Weymouth &amp; Portland PCN</span><span>Briefing</span><span>3 November 2026</span></div>
+
+  <div class="summary">
+    <h2>Summary</h2>
+    <ul>
+      <li>Four of our five practices are in or keen to proceed with Lexacom. Cross Road has decided not to go ahead for now.</li>
+      <li>We keep the PCN discounted rate, as the practices proceeding make up the majority of our combined list size.</li>
+      <li>No practice goes live, trial included, until its DCB0160 is signed off by its own Clinical Safety Officer.</li>
+      <li>We are building one shared PCN safety case core that each practice adopts, so CSOs are not starting from scratch.</li>
+      <li>NHS Dorset, Health Innovation Wessex and Lexacom's governance lead are all supporting the work.</li>
+    </ul>
+  </div>
+
+  <section>
+    <h2><span class="n">1</span>How we chose Lexacom</h2>
+    <p>Over 18 months we evaluated ambient voice technology suppliers against the NHS AVT Supplier Registry, with Health Innovation Wessex involved from the start. We shortlisted four: Lexacom, TORTUS (via X-on Health), Tandem (via Accurx) and Heidi Health. Lexacom was chosen as our preferred supplier, and we published the evaluation on the national AVID forum.</p>
+    <p>All five practices have seen at least one demo, and we have now seen Lexacom's latest release (version 26.3).</p>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>Where each practice is</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Practice</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Royal Manor Health Care</td><td><span class="st ok">Order placed</span></td><td>Goes live once its DCB0160 is signed off.</td></tr>
+        <tr><td>Weymouth Bay (Dorchester Road &amp; Royal Crescent)</td><td><span class="st warn">Pilot</span></td><td>CSOs Ed Ellis and Ali Husain are completing the DCB0160 first.</td></tr>
+        <tr><td>The Bridges Medical Centre</td><td><span class="st warn">Keen</span></td><td>Has seen the demo and wants to proceed.</td></tr>
+        <tr><td>Wyke Regis &amp; Lanehouse</td><td><span class="st warn">Keen</span></td><td>Has seen the demo and wants to proceed.</td></tr>
+        <tr><td>Cross Road Surgery</td><td><span class="st idle">Not proceeding</span></td><td>Has decided not to go ahead for now.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Lexacom has confirmed in writing that we keep the PCN discounted rate even if not every practice proceeds, as long as those going ahead make up the majority of our combined list size. They do. We will send Lexacom the combined list size so they can issue a quote.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>Clinical safety</h2>
+    <div class="rule">
+      <p>No practice goes live, trial included, until its DCB0160 is signed off.</p>
+      <p class="why">On a previous rollout the safety case arrived after launch. We are not repeating that.</p>
+    </div>
+    <p>Two standards apply. Lexacom, as the manufacturer, holds the <span class="mono">DCB0129</span> safety case and hazard log for the product. Each practice, as the organisation deploying it, completes a <span class="mono">DCB0160</span> covering how it is used safely there, signed by the practice CSO.</p>
+    <p>Rather than five practices writing five safety cases from scratch, we are building a shared PCN core from Lexacom's DCB0129. Each practice adopts it, adds local detail, and its own CSO signs it off. This keeps the work consistent, reduces the load on CSOs, and leaves accountability where the standard puts it. Mark has completed digital clinical safety facilitator training and is supporting the CSOs.</p>
+
+    <h3>What we have asked Lexacom for</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Item</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Introduction to Lexacom's governance lead (Chris Bohin)</td><td><span class="st ok">Received</span></td></tr>
+        <tr><td>Patient information leaflets, downloadable or printed</td><td><span class="st ok">Available</span></td></tr>
+        <tr><td>DCB0129 safety case and hazard log</td><td><span class="st warn">Requested</span></td></tr>
+        <tr><td>DPIA template and DCB0160 worked examples</td><td><span class="st warn">Requested</span></td></tr>
+        <tr><td>Verbal consent scripts and website text</td><td><span class="st warn">Requested</span></td></tr>
+        <tr><td>Risk management workshop for our CSOs</td><td><span class="st warn">Requested</span></td></tr>
+        <tr><td>Training for CSOs, clinicians and PCN staff on safe use, consent and checking outputs</td><td><span class="st warn">Requested</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>Who is supporting us</h2>
+    <ul class="plain">
+      <li><b>NHS Dorset, Alex Tealdi:</b> system support for the rollout and clinical safety, here first and then across Dorset.</li>
+      <li><b>Health Innovation Wessex, Patrick Arnold:</b> AVT lead, involved since the evaluation.</li>
+      <li><b>Lexacom, Chris Bohin:</b> governance lead for documentation, DPIA templates, risk workshops, and technical or cyber questions. Happy to work directly with our CSOs.</li>
+      <li><b>Lexacom, Simon Brady and Dr Andrew Whiteley:</b> Head of Sales and CEO. Demos available whenever a practice wants one.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span>PCN services</h2>
+    <p>Lexacom has confirmed PCN staff are covered when delivering services for participating practices. Our care coordinators and frailty team have long, complex phone calls with patients, families and carers, so they could benefit most.</p>
+    <p>Lexacom's capture audio feature records the computer's sound at the press of a button, so it works with our 3CX phones without integration. Lexacom has offered a trial with templates built for these roles. We will first agree with the teams what a good output looks like, and settle whose safety case covers staff working across several practices, before any trial.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">6</span>Next steps</h2>
+    <ol class="steps">
+      <li>Receive the DCB0129, hazard log and DPIA template from Lexacom.</li>
+      <li>Build the shared PCN core, with input from NHS Dorset and Health Innovation Wessex.</li>
+      <li>Each practice CSO adopts the core, adds local detail and signs their DCB0160.</li>
+      <li>Go live one practice at a time, starting with Royal Manor and Weymouth Bay, with training and patient materials in place.</li>
+      <li>Scope Lexacom for PCN services, starting with what the teams need from the output.</li>
+    </ol>
+  </section>
+</article>
+<footer>Prepared by Mark Winterburn, Digital &amp; Transformation Lead, Weymouth &amp; Portland PCN.</footer>
+</div>
+</body>
+</html>
