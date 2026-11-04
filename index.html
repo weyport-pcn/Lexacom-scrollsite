@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>W&amp;P Lexacom Readiness</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,600..800&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
@@ -39,7 +40,6 @@ h3{font-size:1.02rem;font-weight:700;margin:22px 0 8px}
 p{margin:0 0 12px;max-width:66ch}
 ul.plain{margin:0 0 12px;padding-left:20px}
 ul.plain li{margin-bottom:6px}
-.tagline{font-size:.85rem;color:var(--muted);margin:0 0 28px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .meta{display:flex;flex-wrap:wrap;gap:4px 20px;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:12px}
 section{padding-top:30px;margin-top:30px;border-top:1px solid var(--line)}
 .summary{background:var(--accent-soft);padding:18px 20px;margin-top:24px}
@@ -60,6 +60,7 @@ table{width:100%;border-collapse:collapse;font-size:.94rem}
 th{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:500;padding:8px 10px;border-bottom:2px solid var(--line)}
 td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
 td:first-child{font-weight:600;min-width:150px}
+td.note{color:var(--muted);font-size:.9rem}
 .st{white-space:nowrap;font-weight:600}
 .st::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px;background:currentColor}
 .st.ok{color:var(--ok)} .st.warn{color:var(--warn)} .st.idle{color:var(--idle)}
@@ -68,36 +69,50 @@ td:first-child{font-weight:600;min-width:150px}
 .rule p{margin:0;font-weight:600}
 .rule .why{font-weight:400;color:var(--muted);margin-top:6px;font-size:.94rem}
 
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:8px 0 14px}
+.contact{border:1px solid var(--line);padding:14px 16px;min-width:0}
+.contact h3{margin:0 0 2px}
+.contact .role{font-size:.88rem;color:var(--muted);margin:0 0 8px}
+.contact dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;font-size:.92rem}
+.contact dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.contact dd{margin:0;overflow-wrap:anywhere;user-select:all}
+.contact .ask{font-size:.9rem;margin:10px 0 0}
+
 ol.steps{margin:0;padding-left:22px}
 ol.steps li{margin-bottom:8px;padding-left:4px}
 
 footer{max-width:780px;margin:16px auto 0;font-size:.85rem;color:var(--muted)}
-body{margin:0}
 </style>
+<style>body{margin:0}</style>
 </head>
 <body>
 
 <div class="outer">
 <article class="paper">
   <h1>Lexacom and our clinical safety case</h1>
-  <div class="meta"><span>Weymouth &amp; Portland PCN</span><span>Live briefing</span><span>Last updated 3 November 2026</span></div>
+  <div class="meta"><span>Weymouth &amp; Portland PCN</span><span>Live briefing for CSOs and PCN Leadership</span><span>Last updated 4 November 2026</span></div>
   <p class="live">This is a live page. Mark will keep it up to date as things move, so this link always shows where we are. Changes are listed in the update log at the end.</p>
 
   <div class="summary">
     <h2>Summary</h2>
     <ul>
       <li>Four of our five practices are in or keen to proceed with Lexacom. Cross Road has decided not to go ahead for now.</li>
-      <li>We keep the PCN discounted rate, as the practices proceeding make up the majority of our combined list size.</li>
       <li>No practice goes live, trial included, until its DCB0160 is signed off by its own Clinical Safety Officer.</li>
       <li>We are building one shared PCN safety case core that each practice adopts, so CSOs are not starting from scratch.</li>
-      <li>NHS Dorset, Health Innovation Wessex and Lexacom's governance lead are all supporting the work.</li>
+      <li>Lexacom has named Chris Bohin, who heads up governance, as the contact for safety documentation, DPIA templates, risk workshops and technical or cyber questions. CSOs can contact him directly.</li>
+      <li>Lexacom's patient information materials are ready to use now.</li>
     </ul>
   </div>
 
   <section>
-    <h2><span class="n">1</span>How we chose Lexacom</h2>
-    <p>Over 18 months we evaluated ambient voice technology suppliers against the NHS AVT Supplier Registry, with Health Innovation Wessex involved from the start. Mark shortlisted four: Lexacom, TORTUS (via X-on Health), Tandem (via Accurx) and Heidi Health. The PCN Core and Federation meeting then selected Lexacom as the supplier to proceed with, and we published the evaluation on the national AVID forum.</p>
-    <p>All five practices have seen at least one demo, and we have now seen Lexacom's latest release (version 26.3).</p>
+    <h2><span class="n">1</span>For our CSOs</h2>
+    <p>Thank you for taking on the CSO role for your practice. Here is what we are asking of you, and what is already in place to help.</p>
+    <ul class="plain">
+      <li><b>Your job:</b> adopt the shared PCN safety case core when it is ready, add the detail that is specific to your practice, and sign your practice's DCB0160.</li>
+      <li><b>You are not starting from scratch:</b> Mark is building the core from Lexacom's DCB0129 and hazard log, with input from NHS Dorset and Health Innovation Wessex.</li>
+      <li><b>You can go direct to Lexacom:</b> Lexacom is happy for you to contact Chris Bohin and Simon Brady yourselves (details in section 5). Please copy Mark in so we keep one shared picture.</li>
+      <li><b>Support:</b> Mark has completed digital clinical safety facilitator training and is available to work through your safety case with you.</li>
+    </ul>
   </section>
 
   <section>
@@ -122,54 +137,86 @@ body{margin:0}
       <p class="why">On a previous rollout the safety case arrived after launch. We are not repeating that.</p>
     </div>
     <p>Two standards apply. Lexacom, as the manufacturer, holds the <span class="mono">DCB0129</span> safety case and hazard log for the product. Each practice, as the organisation deploying it, completes a <span class="mono">DCB0160</span> covering how it is used safely there, signed by the practice CSO.</p>
-    <p>Rather than five practices writing five safety cases from scratch, we are building a shared PCN core from Lexacom's DCB0129. Each practice adopts it, adds local detail, and its own CSO signs it off. This keeps the work consistent, reduces the load on CSOs, and leaves accountability where the standard puts it. Mark has completed digital clinical safety facilitator training and is supporting the CSOs.</p>
+    <p>Rather than five practices writing five safety cases from scratch, we are building a shared PCN core from Lexacom's DCB0129. Each practice adopts it, adds local detail, and its own CSO signs it off. This keeps the work consistent, reduces the load on CSOs, and leaves accountability where the standard puts it.</p>
 
     <h3>What we have asked Lexacom for</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Item</th><th>Status</th></tr></thead>
+      <thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>Introduction to Lexacom's governance lead (Chris Bohin)</td><td><span class="st ok">Received</span></td></tr>
-        <tr><td>Patient information leaflets, downloadable or printed</td><td><span class="st ok">Available</span></td></tr>
-        <tr><td>DCB0129 safety case and hazard log</td><td><span class="st warn">Requested</span></td></tr>
-        <tr><td>DPIA template and DCB0160 worked examples</td><td><span class="st warn">Requested</span></td></tr>
-        <tr><td>Verbal consent scripts and website text</td><td><span class="st warn">Requested</span></td></tr>
-        <tr><td>Risk management workshop for our CSOs</td><td><span class="st warn">Requested</span></td></tr>
-        <tr><td>Training for CSOs, clinicians and PCN staff on safe use, consent and checking outputs</td><td><span class="st warn">Requested</span></td></tr>
+        <tr><td>Named governance contact for our CSOs</td><td><span class="st ok">Received</span></td><td class="note">Chris Bohin, who heads up governance at Lexacom. We still need to confirm who Lexacom's named Clinical Safety Officer is.</td></tr>
+        <tr><td>Patient information leaflets, downloadable or printed</td><td><span class="st ok">Available</span></td><td class="note">On Lexacom's website, under "Ambient AI: information for patients". Practices can download them or request printed copies.</td></tr>
+        <tr><td>DCB0129 safety case and hazard log</td><td><span class="st warn">With Chris Bohin</span></td><td class="note">Chris handles requests for governance documentation.</td></tr>
+        <tr><td>DPIA template or example</td><td><span class="st warn">With Chris Bohin</span></td><td class="note">Lexacom has an example DPIA template to share.</td></tr>
+        <tr><td>Risk management workshop for our CSOs</td><td><span class="st ok">Offered</span></td><td class="note">Chris facilitates these. Date to be agreed with CSOs.</td></tr>
+        <tr><td>DCB0160 templates or worked examples</td><td><span class="st warn">Awaiting reply</span></td><td class="note">Not yet answered. Will raise with Chris.</td></tr>
+        <tr><td>Verbal consent scripts and website text</td><td><span class="st warn">Awaiting reply</span></td><td class="note">The patient information pages may cover some of this. Will raise with Chris.</td></tr>
+        <tr><td>Training for CSOs, clinicians and PCN staff on safe use, consent and checking outputs</td><td><span class="st warn">Awaiting reply</span></td><td class="note">Not yet answered. Will follow up with Simon.</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section>
-    <h2><span class="n">4</span>Who is supporting us</h2>
+    <h2><span class="n">4</span>How we chose Lexacom</h2>
+    <p>Over 18 months we evaluated ambient voice technology suppliers against the NHS AVT Supplier Registry, with Health Innovation Wessex involved from the start. Mark shortlisted four: Lexacom, TORTUS (via X-on Health), Tandem (via Accurx) and Heidi Health. The PCN Core and Federation meeting then selected Lexacom as the supplier to proceed with, and we published the evaluation on the national AVID forum.</p>
+    <p>All five practices have seen at least one demo, and we have now seen Lexacom's latest release (version 26.3).</p>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span>Contacts</h2>
+    <p>Lexacom is happy for these contact details to be shared for direct requests.</p>
+    <div class="contacts">
+      <div class="contact">
+        <h3>Chris Bohin</h3>
+        <p class="role">Lexacom, heads up governance</p>
+        <dl>
+          <dt>Email</dt><dd>chris.bohin@lexacom.co.uk</dd>
+        </dl>
+        <p class="ask">Go to Chris for governance documentation (DCB0129, hazard log), DPIA templates, risk management workshops, and technical or cyber security questions.</p>
+      </div>
+      <div class="contact">
+        <h3>Simon Brady</h3>
+        <p class="role">Lexacom, Head of Sales</p>
+        <dl>
+          <dt>Email</dt><dd>simon.brady@lexacom.co.uk</dd>
+          <dt>Phone</dt><dd>01295 236931</dd>
+        </dl>
+        <p class="ask">Go to Simon for demos, trials, pricing and anything not covered above.</p>
+      </div>
+    </div>
+    <h3>Also supporting us</h3>
     <ul class="plain">
       <li><b>NHS Dorset, Alex Tealdi:</b> system support for the rollout and clinical safety, here first and then across Dorset.</li>
       <li><b>Health Innovation Wessex, Patrick Arnold:</b> AVT lead, involved since the evaluation.</li>
-      <li><b>Lexacom, Chris Bohin:</b> governance lead for documentation, DPIA templates, risk workshops, and technical or cyber questions. Happy to work directly with our CSOs.</li>
-      <li><b>Lexacom, Simon Brady and Dr Andrew Whiteley:</b> Head of Sales and CEO. Demos available whenever a practice wants one.</li>
+      <li><b>Lexacom, Dr Andrew Whiteley:</b> CEO.</li>
+      <li><b>PCN, Mark Winterburn:</b> Digital &amp; Transformation Lead, coordinating the shared safety case core.</li>
     </ul>
   </section>
 
   <section>
-    <h2><span class="n">5</span>PCN services</h2>
+    <h2><span class="n">6</span>PCN services</h2>
     <p>Lexacom has confirmed PCN staff are covered when delivering services for participating practices. Our care coordinators and frailty team have long, complex phone calls with patients, families and carers, so they could benefit most.</p>
-    <p>Lexacom's capture audio feature records the computer's sound at the press of a button, so it works with our 3CX phones without integration. Lexacom has offered a trial with templates built for these roles. We will first agree with the teams what a good output looks like, and settle whose safety case covers staff working across several practices, before any trial.</p>
+    <p>Lexacom's capture audio feature records the computer's sound at the press of a button, so it works with our 3CX phones without integration. Because nothing is integrated, Lexacom does not record which phone systems its customers use, so it cannot point us to another PCN using it with 3CX.</p>
+    <p>Instead, Lexacom has offered a trial for these teams, with ambient templates built for their roles, and a demo for any staff who missed the earlier ones. Lexacom's own experience outside traditional clinical settings is that results are best when the service defines the outputs it needs before any pilot. That matches our plan: we will first agree with the teams what a good output looks like, and settle whose safety case covers staff working across several practices, before any trial.</p>
   </section>
 
   <section>
-    <h2><span class="n">6</span>Next steps</h2>
+    <h2><span class="n">7</span>Next steps</h2>
     <ol class="steps">
-      <li>Receive the DCB0129, hazard log and DPIA template from Lexacom.</li>
+      <li>Request the DCB0129, hazard log and DPIA template from Chris Bohin, and confirm Lexacom's named Clinical Safety Officer.</li>
+      <li>Agree a date for Chris's risk management workshop with our CSOs.</li>
+      <li>Follow up the outstanding items: DCB0160 examples, consent scripts and training.</li>
+      <li>Send Lexacom our combined list size so it can issue a quote.</li>
       <li>Build the shared PCN core, with input from NHS Dorset and Health Innovation Wessex.</li>
       <li>Each practice CSO adopts the core, adds local detail and signs their DCB0160.</li>
       <li>Go live one practice at a time, starting with Royal Manor and Weymouth Bay, with training and patient materials in place.</li>
-      <li>Scope Lexacom for PCN services, starting with what the teams need from the output.</li>
+      <li>Scope Lexacom for PCN services with the care coordinator and frailty teams, starting with what they need from the output.</li>
     </ol>
   </section>
 
   <section>
-    <h2><span class="n">7</span>Update log</h2>
+    <h2><span class="n">8</span>Update log</h2>
     <ul class="log">
-      <li><time datetime="2026-11-03">3 Nov 2026</time><span>First version shared with PCN Leadership.</span></li>
+      <li><time datetime="2026-11-04">4 Nov 2026</time><span>First version shared with PCN Leadership and practice CSOs. Includes Lexacom's reply: Chris Bohin confirmed as governance contact, risk workshop offered, patient leaflets available, and a trial offered for PCN services in place of a 3CX reference site.</span></li>
     </ul>
   </section>
 </article>
