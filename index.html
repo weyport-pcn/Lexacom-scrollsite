@@ -1,254 +1,314 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex">
-<title>W&amp;P Lexacom Readiness</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,600..800&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lexacom and our clinical safety case | Weymouth &amp; Portland PCN</title>
 <style>
-/* Layout: a briefing paper. One reading column, numbered sections, tables where the content is tabular. */
-:root{color-scheme:light;
-  --bg:#F3F6F7; --paper:#FFFFFF; --ink:#13232D; --muted:#55666F; --line:#D5DEE2;
-  --accent:#0B6B70; --accent-soft:#E3F0F0;
-  --ok:#2F7D46; --warn:#9A6400; --idle:#6B7880;
-  --display:"Archivo","Arial Narrow",Arial,sans-serif;
-  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0F1A20; --paper:#16242B; --ink:#E4ECEF; --muted:#9AAAB2; --line:#2A3B44;
-  --accent:#5CC3C6; --accent-soft:#163A3D;
-  --ok:#7BCB92; --warn:#E5B35C; --idle:#9AAAB2;
-  color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0F1A20; --paper:#16242B; --ink:#E4ECEF; --muted:#9AAAB2; --line:#2A3B44;
-  --accent:#5CC3C6; --accent-soft:#163A3D;
-  --ok:#7BCB92; --warn:#E5B35C; --idle:#9AAAB2;
-  color-scheme:dark}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.6}
-.outer{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 48px}
-.paper{max-width:780px;margin:0 auto;background:var(--paper);border:1px solid var(--line);padding:clamp(22px,5vw,56px)}
-h1,h2,h3{font-family:var(--display);font-stretch:88%;line-height:1.15;text-wrap:balance;margin:0}
-h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:800}
-h2{font-size:1.35rem;font-weight:750;display:flex;gap:12px;align-items:baseline;margin-bottom:12px}
-h2 .n{font-family:var(--mono);font-size:.8rem;color:var(--accent);font-weight:500}
-h3{font-size:1.02rem;font-weight:700;margin:22px 0 8px}
-p{margin:0 0 12px;max-width:66ch}
-a{color:var(--accent);overflow-wrap:anywhere}
-ul.plain{margin:0 0 12px;padding-left:20px}
-ul.plain li{margin-bottom:6px}
-.meta{display:flex;flex-wrap:wrap;gap:4px 20px;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:12px}
-section{padding-top:30px;margin-top:30px;border-top:1px solid var(--line)}
-.summary{background:var(--accent-soft);padding:18px 20px;margin-top:24px}
-.summary h2{margin-bottom:8px}
-.summary ul{margin:0;padding-left:20px}
-.summary li{margin-bottom:6px}
-.summary li:last-child{margin-bottom:0}
-.mono{font-family:var(--mono);font-size:.88em}
-.live{font-size:.94rem;color:var(--muted);margin:14px 0 0;padding-left:12px;border-left:3px solid var(--accent)}
-.log{list-style:none;padding:0;margin:0}
-.log li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:4px 16px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.94rem}
-.log time{font-family:var(--mono);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
-@media (max-width:480px){.log li{grid-template-columns:1fr}}
-
-/* tables */
-.tbl{overflow-x:auto;margin:6px 0 14px}
-table{width:100%;border-collapse:collapse;font-size:.94rem}
-th{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:500;padding:8px 10px;border-bottom:2px solid var(--line)}
-td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
-td:first-child{font-weight:600;min-width:150px}
-td.note{color:var(--muted);font-size:.9rem}
-.st{white-space:nowrap;font-weight:600}
-.st::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px;background:currentColor}
-.st.ok{color:var(--ok)} .st.warn{color:var(--warn)} .st.idle{color:var(--idle)}
-
-.rule{border:2px solid var(--accent);padding:16px 18px;margin:16px 0}
-.rule p{margin:0;font-weight:600}
-.rule ul.core{margin:10px 0 0}
-.rule ul.core li{margin-bottom:4px}
-.rule .why{font-weight:400;color:var(--muted);margin-top:6px;font-size:.94rem}
-
-.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:8px 0 14px}
-.contact{border:1px solid var(--line);padding:14px 16px;min-width:0}
-.contact h3{margin:0 0 2px}
-.contact .role{font-size:.88rem;color:var(--muted);margin:0 0 8px}
-.contact dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;font-size:.92rem}
-.contact dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
-.contact dd{margin:0;overflow-wrap:anywhere;user-select:all}
-.contact .ask{font-size:.9rem;margin:10px 0 0}
-
-ol.steps{margin:0;padding-left:22px}
-ol.steps li{margin-bottom:8px;padding-left:4px}
-
-footer{max-width:780px;margin:16px auto 0;font-size:.85rem;color:var(--muted)}
+  :root{
+    --ink:#1d2a33; --muted:#5b6b75; --line:#dbe3e8; --bg:#f6f8f9; --card:#ffffff;
+    --accent:#005eb8; --accent-soft:#e8f1fa; --ok:#1e7a46; --ok-soft:#e6f4ec;
+    --warn:#9a5b00; --warn-soft:#fdf2e1; --grey-soft:#eef1f3;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+  header{background:var(--accent);color:#fff;padding:44px 0 36px}
+  header .org{font-size:15px;opacity:.85;margin:0 0 6px;letter-spacing:.02em}
+  header h1{margin:0 0 8px;font-size:32px;line-height:1.2}
+  header .aud{margin:0;opacity:.9}
+  header .date{display:inline-block;margin-top:16px;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:999px;font-size:14px}
+  .live{background:var(--accent-soft);border-bottom:1px solid var(--line);padding:14px 0;font-size:15px;color:#20435f}
+  nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
+  nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+  nav a{white-space:nowrap;text-decoration:none;color:var(--accent);font-size:14px;padding:6px 10px;border-radius:6px}
+  nav a:hover{background:var(--accent-soft)}
+  main{padding:28px 0 60px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px;margin:0 0 22px}
+  h2{margin:0 0 16px;font-size:24px;display:flex;align-items:baseline;gap:12px}
+  h2 .n{font-size:14px;color:#fff;background:var(--accent);border-radius:999px;min-width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+  h3{font-size:18px;margin:24px 0 10px}
+  p{margin:0 0 12px}
+  ul{margin:0 0 12px;padding-left:22px}
+  li{margin:0 0 8px}
+  .callout{background:var(--accent-soft);border-left:4px solid var(--accent);padding:14px 18px;border-radius:6px;margin:0 0 14px}
+  .callout p:last-child{margin:0}
+  .callout.amber{background:var(--warn-soft);border-color:var(--warn)}
+  table{width:100%;border-collapse:collapse;font-size:15px;margin:0 0 14px}
+  th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+  th{background:var(--grey-soft);font-weight:600}
+  td:first-child{font-weight:600}
+  .tag{display:inline-block;font-size:13px;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap}
+  .t-ok{background:var(--ok-soft);color:var(--ok)}
+  .t-blue{background:var(--accent-soft);color:var(--accent)}
+  .t-amber{background:var(--warn-soft);color:var(--warn)}
+  .t-grey{background:var(--grey-soft);color:var(--muted)}
+  .contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:0 0 16px}
+  .contact{border:1px solid var(--line);border-radius:10px;padding:16px}
+  .contact h3{margin:0 0 2px}
+  .contact .role{color:var(--muted);font-size:14px;margin:0 0 10px}
+  .contact a{color:var(--accent)}
+  .log dt{font-weight:700;margin-top:14px}
+  .log dd{margin:4px 0 0 0;color:var(--ink)}
+  .mailbtn{display:inline-block;margin:16px 0 0 10px;background:#fff;color:var(--accent);font-weight:600;font-size:14px;padding:6px 14px;border-radius:999px;text-decoration:none}
+  .mailbtn:hover{background:var(--accent-soft)}
+  .mailbtn.alt{margin:0;background:var(--accent);color:#fff;font-size:15px;padding:10px 20px}
+  .mailbtn.alt:hover{background:#004a91}
+  footer p{margin:0 0 8px}
+  footer{color:var(--muted);font-size:14px;text-align:center;padding:0 0 40px}
+  a{color:var(--accent)}
+  @media (max-width:640px){
+    body{font-size:16px} header h1{font-size:26px} section{padding:20px}
+    .scroll{overflow-x:auto}
+    table{min-width:560px}
+  }
 </style>
 </head>
 <body>
 
-<div class="outer">
-<article class="paper">
-  <h1>Lexacom and our clinical safety case</h1>
-  <div class="meta"><span>Weymouth &amp; Portland PCN</span><span>Live briefing for PCN Leadership, practice managers and CSOs</span><span>Last updated 16 November 2026</span></div>
-  <p class="live">This is a live page. Mark will keep it up to date as things move, so this link always shows where we are. Changes are listed in the update log at the end.</p>
-
-  <div class="summary">
-    <h2>Summary</h2>
-    <ul>
-      <li>Lexacom has now sent its DCB0129 safety case, hazard log and DPIA. All will be reissued with Lexacom's 26.4 release in December.</li>
-      <li>Lexacom's Clinical Safety Officer is Dr Neil Paul, a practising GP and PCN Clinical Director.</li>
-      <li>Four of our five practices are in or keen to proceed with Lexacom. Cross Road has decided not to go ahead for now.</li>
-      <li>Weymouth Bay is piloting, and its CSOs are refining their safety case through the pilot. Royal Manor has ordered and drafted its DCB0160, DPIA and privacy notice wording.</li>
-      <li>Before Lexacom is used with patients, including in a pilot, the national standard expects a signed DCB0160 and a completed DPIA. Each practice's CSO decides when that point is reached, and can sign a first version with conditions for a pilot, then update it as the practice learns.</li>
-      <li>Each practice completes its own DPIA as data controller. NHS England publishes a template DPIA written specifically for ambient scribes (see section 3).</li>
-      <li>Lexacom's patient information materials are ready to use now.</li>
-    </ul>
+<header>
+  <div class="wrap">
+    <p class="org">Weymouth &amp; Portland PCN</p>
+    <h1>Lexacom and our clinical safety case</h1>
+    <p class="aud">Live briefing for PCN Leadership, practice managers and CSOs</p>
+    <span class="date">Last updated 19 November 2026</span>
+    <a class="mailbtn" href="mailto:mark.winterburn@dorsetgp.nhs.uk?subject=Lexacom%20readiness%20page">Email Mark with an update</a>
   </div>
+</header>
 
-  <div class="rule">
-    <p>Updates welcome at any time.</p>
-    <p class="why">If anything changes at your practice, or anything here is out of date, just send Mark a line and he will update the page.</p>
-  </div>
-
-  <section>
-    <h2><span class="n">1</span>For our CSOs</h2>
-    <p>Thank you for taking on the CSO role for your practice. Here is what we are asking of you, and what is already in place to help.</p>
-    <ul class="plain">
-      <li><b>Your job:</b> adopt the shared PCN safety case core when it is ready, add the detail that is specific to your practice, and sign your practice's DCB0160.</li>
-      <li><b>You are not starting from scratch:</b> with their agreement, the core will draw on Weymouth Bay's safety case and Royal Manor's draft DCB0160, checked against Lexacom's DCB0129 and hazard log, with input from NHS Dorset and Health Innovation Wessex.</li>
-      <li><b>Lexacom's documents are in:</b> the safety case, hazard log and risk management plan are available from Mark or from Chris Bohin.</li>
-      <li><b>You can go direct to Lexacom:</b> Lexacom is happy for you to contact Chris Bohin and Simon Brady yourselves (details in section 5). Please copy Mark in so we keep one shared picture.</li>
-      <li><b>Support if you want it:</b> Mark has completed digital clinical safety facilitator training and is happy to help if asked.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2><span class="n">2</span>Where each practice is</h2>
-    <div class="tbl"><table>
-      <thead><tr><th>Practice</th><th>Status</th><th>Notes</th></tr></thead>
-      <tbody>
-        <tr><td>Royal Manor Health Care</td><td><span class="st ok">Order placed</span></td><td>Draft DCB0160, DPIA and privacy notice wording written and shared with Mark. Royal Manor has agreed these can inform the shared PCN core. Some parts are still to complete, including the data processor details, which we are getting from Lexacom. Ready to use with patients once its DCB0160 is signed off by the practice CSO and its DPIA is complete.</td></tr>
-        <tr><td>Weymouth Bay Medical Practice</td><td><span class="st warn">Pilot</span></td><td>Training session held. CSOs Ed Ellis and Ali Husain have drafted the safety case and are refining it through the pilot. The practice has received Lexacom's DPIA and is preparing its own DPIA and privacy notice wording.</td></tr>
-        <tr><td>The Bridges Medical Centre</td><td><span class="st warn">Keen</span></td><td>Has seen the demo and wants to proceed.</td></tr>
-        <tr><td>Wyke Regis &amp; Lanehouse</td><td><span class="st warn">Keen</span></td><td>Has seen the demo and wants to proceed.</td></tr>
-        <tr><td>Cross Road Surgery</td><td><span class="st idle">Not proceeding</span></td><td>Has decided not to go ahead for now.</td></tr>
-      </tbody>
-    </table></div>
-    <p>Lexacom has confirmed in writing that we keep the PCN discounted rate even if not every practice proceeds, as long as those going ahead make up the majority of our combined list size. They do: the four practices going ahead have a combined list of 67,632, out of 76,418 across the PCN (nearly 89%). We sent these figures to Lexacom on 16 November and asked for a quote with a per-practice breakdown.</p>
-  </section>
-
-  <section>
-    <h2><span class="n">3</span>Clinical safety and data protection</h2>
-    <div class="rule">
-      <p>Before Lexacom is used with patients, including in a pilot, the national standard expects a signed DCB0160 and a completed DPIA.</p>
-      <p class="why">Each practice's CSO decides when that point is reached, and can sign a first version with conditions for a pilot, then update it as the practice learns.</p>
-    </div>
-    <p>Two standards apply. Lexacom, as the manufacturer, holds the <span class="mono">DCB0129</span> safety case and hazard log for the product. Each practice, as the organisation deploying it, completes a <span class="mono">DCB0160</span> covering how it is used safely there, signed by the practice CSO.</p>
-    <p>Rather than five practices writing five safety cases from scratch, we are building a shared PCN core. With their agreement, it draws on Weymouth Bay's safety case and Royal Manor's draft DCB0160, which sets out a local list of 24 hazards, checked against Lexacom's DCB0129 and hazard log. Each practice adopts it, adds local detail, and its own CSO signs it off. This keeps the work consistent, reduces the load on CSOs, and leaves accountability where the standard puts it.</p>
-
-    <h3>What Lexacom's documents mean for practices</h3>
-    <ul class="plain">
-      <li><b>Documents received:</b> Clinical Safety Case Report v2.0, Clinical Risk Management Plan v2.0, Hazard Log v3.0 and DPIA v1.7. Lexacom will reissue them with its 26.4 release in December, so practice sign-offs should name the versions used and be reviewed when 26.4 arrives.</li>
-      <li><b>Shared risks:</b> Lexacom's hazard log lists 18 hazards and marks 13 of them as shared with the deploying practice, mainly relying on clinician review of every note and on training. The local controls in each practice's DCB0160 are what manage these.</li>
-      <li><b>DPIA:</b> Lexacom's DPIA is written from its side as the data processor. Each practice completes its own as data controller. For direct care, NHS England's guidance points to Article 6(1)(e) public task and Article 9(2)(h) health and care as the most likely lawful bases.</li>
-      <li><b>NHS England templates:</b> a <a href="https://digital.nhs.uk/data-and-information/information-governance/templates/ai-enabled-ambient-scribing-products-template-dpia">template DPIA for ambient scribes</a>, and a template data sharing and processing agreement, on the <a href="https://digital.nhs.uk/data-and-information/information-governance/templates">NHS England IG templates page</a>.</li>
-    </ul>
-
-    <h3>What we have asked Lexacom for</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead>
-      <tbody>
-        <tr><td>Named governance contact for our CSOs</td><td><span class="st ok">Received</span></td><td class="note">Chris Bohin, who heads up governance at Lexacom.</td></tr>
-        <tr><td>Lexacom's Clinical Safety Officer</td><td><span class="st ok">Received</span></td><td class="note">Dr Neil Paul, a practising GP and PCN Clinical Director.</td></tr>
-        <tr><td>DCB0129 safety case and hazard log</td><td><span class="st ok">Received</span></td><td class="note">Received 16 November. To be reissued with 26.4 in December.</td></tr>
-        <tr><td>DPIA template or example</td><td><span class="st ok">Received</span></td><td class="note">Sent to Weymouth Bay and Mark on 16 November. To be reissued with 26.4 in December.</td></tr>
-        <tr><td>Patient information leaflets, downloadable or printed</td><td><span class="st ok">Available</span></td><td class="note">On Lexacom's website, under "Ambient AI: information for patients". Practices can download them or request printed copies.</td></tr>
-        <tr><td>Risk management workshop for our CSOs</td><td><span class="st ok">Offered</span></td><td class="note">Chris is available from Monday 30 November. Week of 30 November pencilled in, with Neil Paul invited. Date to confirm with CSOs who would like to attend.</td></tr>
-        <tr><td>DCB0160 templates or worked examples</td><td><span class="st warn">Requested</span></td><td class="note">Requested from Chris on 6 November, and chased on 16 November.</td></tr>
-        <tr><td>Privacy notice wording, verbal consent scripts and website text</td><td><span class="st warn">Requested</span></td><td class="note">Requested from Chris on 6 November, and by Weymouth Bay on 9 November. Chased on 16 November. Royal Manor's privacy notice already has a section on consultation recording and clinical scribe software, which can inform shared wording.</td></tr>
-        <tr><td>Data processor details, data processing agreement and sub-processor list</td><td><span class="st warn">Requested</span></td><td class="note">Requested from Chris on 16 November. Needed to complete practice DPIAs. Lexacom's DPIA already gives some processor details (Aprobrium Ltd, Azure UK hosting, ISO 27001, DSP Toolkit).</td></tr>
-        <tr><td>Data retention document</td><td><span class="st warn">Requested</span></td><td class="note">Requested from Chris on 16 November. Lexacom's DPIA refers to it, and practice DPIAs need it.</td></tr>
-        <tr><td>What changes in 26.4</td><td><span class="st warn">Requested</span></td><td class="note">Asked on 16 November, so practices know what to review when the reissued documents arrive.</td></tr>
-        <tr><td>Training for CSOs, clinicians and PCN staff on safe use, consent and checking outputs</td><td><span class="st warn">Awaiting reply</span></td><td class="note">Followed up with Simon on 16 November, starting with practice clinicians and CSOs. PCN staff training will follow once the practices are up and running.</td></tr>
-      </tbody>
-    </table></div>
-  </section>
-
-  <section>
-    <h2><span class="n">4</span>How we chose Lexacom</h2>
-    <p>Over 18 months we evaluated ambient voice technology suppliers against the NHS AVT Supplier Registry, with Health Innovation Wessex involved from the start. Mark shortlisted four: Lexacom, TORTUS (via X-on Health), Tandem (via Accurx) and Heidi Health. The PCN Core and Federation meeting then selected Lexacom as the supplier to proceed with, and we published the evaluation on the national AVID forum.</p>
-    <p>All five practices have seen at least one demo, and we have seen Lexacom's current release (version 26.3). Version 26.4 is due in December.</p>
-  </section>
-
-  <section>
-    <h2><span class="n">5</span>Contacts</h2>
-    <p>Lexacom is happy for these contact details to be shared for direct requests.</p>
-    <div class="contacts">
-      <div class="contact">
-        <h3>Chris Bohin</h3>
-        <p class="role">Lexacom, heads up governance</p>
-        <dl>
-          <dt>Email</dt><dd>chris.bohin@lexacom.co.uk</dd>
-        </dl>
-        <p class="ask">Go to Chris for governance documentation (DCB0129, hazard log), DPIA templates, risk management workshops, and technical or cyber security questions.</p>
-      </div>
-      <div class="contact">
-        <h3>Simon Brady</h3>
-        <p class="role">Lexacom, Head of Sales</p>
-        <dl>
-          <dt>Email</dt><dd>simon.brady@lexacom.co.uk</dd>
-          <dt>Phone</dt><dd>01295 236931</dd>
-        </dl>
-        <p class="ask">Go to Simon for demos, trials, pricing and anything not covered above.</p>
-      </div>
-    </div>
-    <h3>Also supporting us</h3>
-    <ul class="plain">
-      <li><b>Lexacom, Dr Neil Paul:</b> Clinical Safety Officer.</li>
-      <li><b>NHS Dorset, Alex Tealdi:</b> Digital Clinical Safety Manager. Has offered to advise on our safety case, and suggested sharing our learning through the Wessex HIN AVT Community of Practice.</li>
-      <li><b>Health Innovation Wessex, Patrick Arnold:</b> AVT lead, involved since the evaluation.</li>
-      <li><b>Lexacom, Dr Andrew Whiteley:</b> CEO.</li>
-      <li><b>PCN, Mark Winterburn:</b> Digital &amp; Transformation Lead, coordinating the shared safety case core.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2><span class="n">6</span>PCN services</h2>
-    <p>Lexacom has confirmed PCN staff are covered when delivering services for participating practices. Our care coordinators and frailty team have long, complex phone calls with patients, families and carers, so they could benefit most.</p>
-    <p>Lexacom's capture audio feature records the computer's sound at the press of a button, so it works with our 3CX phones without integration. Because nothing is integrated, Lexacom does not record which phone systems its customers use, so it cannot point us to another PCN using it with 3CX.</p>
-    <p>Instead, Lexacom has offered a trial for these teams, with ambient templates built for their roles, and a demo for any staff who missed the earlier ones. Lexacom's own experience outside traditional clinical settings is that results are best when the service defines the outputs it needs before any pilot. That matches our plan: we will first agree with the teams what a good output looks like, and settle whose safety case covers staff working across several practices, before any trial.</p>
-  </section>
-
-  <section>
-    <h2><span class="n">7</span>Next steps</h2>
-    <ol class="steps">
-      <li>Receive the outstanding items from Chris Bohin (chased 16 November): DCB0160 examples, privacy and consent wording, data processing agreement, sub-processor list, data retention document, and what changes in 26.4.</li>
-      <li>Confirm a date in the week of 30 November for Chris's risk management workshop with CSOs who would like to attend.</li>
-      <li>Receive Lexacom's training offer for practice clinicians and CSOs, and its quote.</li>
-      <li>Hold a call with Alex Tealdi (requested 16 November) on the shared core, safety cover for PCN services, and sign-off timing around 26.4.</li>
-      <li>Build the shared PCN safety case core, drawing on Weymouth Bay's and Royal Manor's work and checked against Lexacom's DCB0129 and hazard log, with input from NHS Dorset and Health Innovation Wessex.</li>
-      <li>Each practice CSO adopts the core, adds local detail and signs their DCB0160. Each practice completes its own DPIA and updates its privacy notice.</li>
-      <li>Go live one practice at a time, with training and patient materials in place.</li>
-      <li>Review sign-offs when Lexacom reissues its documents with 26.4 in December.</li>
-      <li>Scope Lexacom for PCN services with the care coordinator and frailty teams, starting with what they need from the output.</li>
-    </ol>
-  </section>
-
-  <section>
-    <h2><span class="n">8</span>Update log</h2>
-    <ul class="log">
-      <li><time datetime="2026-11-16">16 Nov 2026</time><span>Lexacom's DCB0129 safety case, hazard log, risk management plan and DPIA received, all due to be reissued with 26.4 in December. Lexacom's Clinical Safety Officer confirmed as Dr Neil Paul. CSO workshop available from 30 November. Links to NHS England's ambient scribe template DPIA added. Weymouth Bay's CSOs are refining their safety case through the pilot. Wording on sign-off updated to reflect the national standard and each CSO's role. Outstanding items chased with Chris, plus the data retention document and what changes in 26.4. Workshop pencilled in for the week of 30 November. Lexacom's documents shared with Weymouth Bay and Royal Manor. Combined list size sent to Lexacom for a quote, training followed up, and a call requested with Alex Tealdi at NHS Dorset.</span></li>
-      <li><time datetime="2026-11-11">11 Nov 2026</time><span>Royal Manor has agreed its drafts can inform the shared PCN core, and has shared its privacy notice wording, which already covers consultation recording and scribe software. Data processor details, data processing agreement and sub-processor list added to our requests to Lexacom, to complete the DPIAs.</span></li>
-      <li><time datetime="2026-11-10">10 Nov 2026</time><span>Royal Manor sent its Core update in advance: Lexacom ordered, and a draft DCB0160 and DPIA written and shared with Mark. With their agreement, both drafts will inform the shared PCN core alongside Weymouth Bay's safety case.</span></li>
-      <li><time datetime="2026-11-09">9 Nov 2026</time><span>Shared with practice managers and CSOs, with each practice asked to bring an update to Core on 11 November. Weymouth Bay's CSOs have completed their safety case, and the practice has asked Lexacom directly for the DPIA template and privacy notice wording. With their agreement, the shared PCN core will start from Weymouth Bay's safety case.</span></li>
-      <li><time datetime="2026-11-06">6 Nov 2026</time><span>Governance documents, DCB0160 examples, privacy and consent wording and workshop dates requested from Chris Bohin. Shared PCN DPIA added to the plan. Alex Tealdi has offered to advise on the safety case. Weymouth Bay has had its training session.</span></li>
-      <li><time datetime="2026-11-04">4 Nov 2026</time><span>First version shared with PCN Leadership. Includes Lexacom's reply: Chris Bohin confirmed as governance contact, risk workshop offered, patient leaflets available, and a trial offered for PCN services in place of a 3CX reference site.</span></li>
-    </ul>
-  </section>
-</article>
-<footer>Prepared by Mark Winterburn, Digital &amp; Transformation Lead, Weymouth &amp; Portland PCN.</footer>
+<div class="live">
+  <div class="wrap">This is a live page. Mark will keep it up to date as things move, so this link always shows where we are. Changes are listed in the update log at the end.</div>
 </div>
+
+<nav>
+  <div class="wrap">
+    <a href="#practices">Practices</a>
+    <a href="#safety">Safety &amp; data</a>
+    <a href="#contacts">Contacts</a>
+    <a href="#next">Next steps</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="summary">
+  <h2>Summary</h2>
+  <ul>
+    <li>Lexacom has sent its DCB0129 safety case, hazard log, risk management plan and DPIA. All will be reissued with Lexacom's 26.4 release in December.</li>
+    <li>Lexacom's Clinical Safety Officer is Dr Neil Paul, a practising GP and PCN Clinical Director.</li>
+    <li>Four of our five practices are in or keen to proceed with Lexacom. Cross Road has decided not to go ahead for now.</li>
+    <li>Weymouth Bay is piloting, and its CSOs are refining their safety case through the pilot. Early feedback is mixed (see section 3). Royal Manor has ordered and drafted its DCB0160, DPIA and privacy notice wording.</li>
+    <li>Lexacom has quoted each practice at the PCN rate, with training included in the price.</li>
+    <li>Before Lexacom is used with patients, including in a pilot, the national standard expects a signed DCB0160 and a completed DPIA. Each practice's CSO decides when that point is reached, and can sign a first version with conditions for a pilot, then update it as the practice learns.</li>
+    <li>Each practice completes its own DPIA as data controller. NHS England publishes a template DPIA written specifically for ambient scribes (see section 4).</li>
+    <li>We meet Alex Tealdi, NHS Dorset's Digital Clinical Safety Manager, on Friday 20 November to talk through the shared safety case core.</li>
+    <li>Lexacom's patient information materials are ready to use now.</li>
+  </ul>
+  <div class="callout">
+    <p><strong>Updates welcome at any time.</strong> This page is read-only, so if anything changes at your practice, anything here is out of date, or you have feedback on Lexacom, just email Mark and he will update the page.</p>
+  </div>
+</section>
+
+<section id="csos">
+  <h2><span class="n">1</span>For our CSOs</h2>
+  <p>Thank you for taking on the CSO role for your practice. Here is what we are asking of you, and what is already in place to help.</p>
+  <ul>
+    <li><strong>Your job:</strong> adopt the shared PCN safety case core when it is ready, add the detail that is specific to your practice, and sign your practice's DCB0160.</li>
+    <li><strong>You are not starting from scratch:</strong> with their agreement, the core will draw on Weymouth Bay's safety case and Royal Manor's draft DCB0160, checked against Lexacom's DCB0129 and hazard log, with input from NHS Dorset and Health Innovation Wessex.</li>
+    <li><strong>Lexacom's documents are in:</strong> the safety case, hazard log, risk management plan and DPIA are available from Mark or from Chris Bohin.</li>
+    <li><strong>Training:</strong> Lexacom encourages CSOs to join its practice training sessions, and can support you with cyber and governance documentation.</li>
+    <li><strong>You can go direct to Lexacom:</strong> Lexacom is happy for you to contact Chris Bohin and Simon Brady yourselves (details in section 6). Please copy Mark in so we keep one shared picture.</li>
+    <li><strong>Support if you want it:</strong> Mark has completed digital clinical safety facilitator training and is happy to help if asked.</li>
+  </ul>
+</section>
+
+<section id="practices">
+  <h2><span class="n">2</span>Where each practice is</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Practice</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Royal Manor Health Care</td>
+        <td><span class="tag t-ok">Order placed</span></td>
+        <td>Has received Lexacom's DCB0129 safety case, hazard log and DPIA. Draft DCB0160, DPIA and privacy notice wording written and shared with Mark. Royal Manor has agreed these can inform the shared PCN core. Some parts are still to complete, including the data processor details, which we are getting from Lexacom. Ready to use with patients once its DCB0160 is signed off by the practice CSO and its DPIA is complete.</td>
+      </tr>
+      <tr>
+        <td>Weymouth Bay Medical Practice</td>
+        <td><span class="tag t-blue">Pilot</span></td>
+        <td>Training session held. CSOs Ed Ellis and Ali Husain have drafted the safety case and are refining it through the pilot. The practice has received Lexacom's DPIA, safety case and hazard log, and is preparing its own DPIA and privacy notice wording. Early pilot feedback is in section 3.</td>
+      </tr>
+      <tr>
+        <td>The Bridges Medical Centre</td>
+        <td><span class="tag t-amber">Keen</span></td>
+        <td>Has seen the demo and wants to proceed.</td>
+      </tr>
+      <tr>
+        <td>Wyke Regis &amp; Lanehouse</td>
+        <td><span class="tag t-amber">Trial requested</span></td>
+        <td>Has seen the demo and wants to proceed. Lexacom's quote lists the practice as having requested a trial.</td>
+      </tr>
+      <tr>
+        <td>Cross Road Surgery</td>
+        <td><span class="tag t-grey">Not proceeding</span></td>
+        <td>Has decided not to go ahead for now.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Pricing</h3>
+  <p>Lexacom has confirmed in writing that we keep the PCN discounted rate even if not every practice proceeds, as long as those going ahead make up the majority of our combined list size. They do: the four practices going ahead have a combined list of 67,632, out of 76,418 across the PCN (nearly 89%).</p>
+  <p>Lexacom has now quoted each practice separately and given all four the PCN rate:</p>
+  <ul>
+    <li><strong>20p per patient</strong> without Echo (normally 24p)</li>
+    <li><strong>30p per patient</strong> with Echo (normally 36p)</li>
+  </ul>
+  <p>Prices are ex VAT. The price covers unlimited people at each practice, installation, training, software updates and helpdesk support. Microphones are extra. Each practice's quote has been shared by email.</p>
+</section>
+
+<section id="pilot">
+  <h2><span class="n">3</span>What we are learning from the pilot</h2>
+  <p>Weymouth Bay's early experience has been mixed. Getting started has been harder than expected:</p>
+  <ul>
+    <li>one clinician's account was set up with the wrong role</li>
+    <li>it was not clear how to set up audio input and output</li>
+    <li>in one case a captured consultation did not save to SystmOne and had to be typed again</li>
+  </ul>
+  <p>Even so, there is a view that Lexacom will help overall, particularly for clinicians who type slowly, accepting that some editing of the generated output will always be needed. Weymouth Bay will share more in a few weeks as more clinicians use it.</p>
+  <div class="callout amber">
+    <p><strong>Why this matters for the safety case:</strong> a note that does not reach the record, or an account set up with the wrong role, is exactly the kind of local risk a DCB0160 needs to cover. We will share these points with Lexacom and build them into the shared core, along with setup checks for each practice before go-live.</p>
+  </div>
+  <p>Feedback from any practice is welcome. Please email Mark and he will add it here.</p>
+</section>
+
+<section id="safety">
+  <h2><span class="n">4</span>Clinical safety and data protection</h2>
+  <div class="callout">
+    <p>Before Lexacom is used with patients, including in a pilot, the national standard expects a signed DCB0160 and a completed DPIA.</p>
+    <p>Each practice's CSO decides when that point is reached, and can sign a first version with conditions for a pilot, then update it as the practice learns.</p>
+  </div>
+  <p>Two standards apply. Lexacom, as the manufacturer, holds the DCB0129 safety case and hazard log for the product. Each practice, as the organisation deploying it, completes a DCB0160 covering how it is used safely there, signed by the practice CSO.</p>
+  <p>Rather than five practices writing five safety cases from scratch, we are building a shared PCN core. With their agreement, it draws on Weymouth Bay's safety case and Royal Manor's draft DCB0160, which sets out a local list of 24 hazards, checked against Lexacom's DCB0129 and hazard log. Each practice adopts it, adds local detail, and its own CSO signs it off. This keeps the work consistent, reduces the load on CSOs, and leaves accountability where the standard puts it.</p>
+
+  <h3>What Lexacom's documents mean for practices</h3>
+  <ul>
+    <li><strong>Documents received:</strong> Clinical Safety Case Report v2.0, Clinical Risk Management Plan v2.0, Hazard Log v3.0 and DPIA v1.7. Lexacom will reissue them with its 26.4 release in December, so practice sign-offs should name the versions used and be reviewed when 26.4 arrives.</li>
+    <li><strong>Shared risks:</strong> Lexacom's hazard log lists 18 hazards and marks 13 of them as shared with the deploying practice, mainly relying on clinician review of every note and on training. The local controls in each practice's DCB0160 are what manage these.</li>
+    <li><strong>DPIA:</strong> Lexacom's DPIA is written from its side as the data processor. Each practice completes its own as data controller. For direct care, NHS England's guidance points to Article 6(1)(e) public task and Article 9(2)(h) health and care as the most likely lawful bases.</li>
+    <li><strong>NHS England templates:</strong> a <a href="https://digital.nhs.uk/data-and-information/information-governance/templates/ai-enabled-ambient-scribing-products-template-dpia">template DPIA for ambient scribes</a>, and a template data sharing and processing agreement, on the NHS England IG templates page.</li>
+  </ul>
+
+  <h3>What we have asked Lexacom for</h3>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Item</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Named governance contact for our CSOs</td><td><span class="tag t-ok">Received</span></td><td>Chris Bohin, who heads up governance at Lexacom.</td></tr>
+      <tr><td>Lexacom's Clinical Safety Officer</td><td><span class="tag t-ok">Received</span></td><td>Dr Neil Paul, a practising GP and PCN Clinical Director.</td></tr>
+      <tr><td>DCB0129 safety case and hazard log</td><td><span class="tag t-ok">Received</span></td><td>Received 16 November and shared with Weymouth Bay and Royal Manor. To be reissued with 26.4 in December.</td></tr>
+      <tr><td>DPIA template or example</td><td><span class="tag t-ok">Received</span></td><td>Received 16 November and shared with Weymouth Bay and Royal Manor. To be reissued with 26.4 in December.</td></tr>
+      <tr><td>Per-practice quote</td><td><span class="tag t-ok">Received</span></td><td>Received 16 November. PCN rate honoured for all four practices (see section 2).</td></tr>
+      <tr><td>Training for clinicians and CSOs</td><td><span class="tag t-ok">Received</span></td><td>Included in the price. Live sessions on Teams, recorded for anyone who can't attend, with free follow-up sessions and digital materials. Covers safe use, patient consent and checking outputs. CSOs are encouraged to take part. Training for PCN staff will follow once the practices are up and running.</td></tr>
+      <tr><td>Patient information leaflets, downloadable or printed</td><td><span class="tag t-ok">Available</span></td><td>On Lexacom's website, under "Ambient AI: information for patients". Practices can download them or request printed copies.</td></tr>
+      <tr><td>Risk management workshop for our CSOs</td><td><span class="tag t-blue">Offered</span></td><td>Chris is available from Monday 30 November. Week of 30 November pencilled in, with Neil Paul invited. Date to confirm with CSOs who would like to attend.</td></tr>
+      <tr><td>DCB0160 templates or worked examples</td><td><span class="tag t-amber">Requested</span></td><td>Requested from Chris on 6 November, and chased on 16 November.</td></tr>
+      <tr><td>Privacy notice wording, verbal consent scripts and website text</td><td><span class="tag t-amber">Requested</span></td><td>Requested from Chris on 6 November, and by Weymouth Bay on 9 November. Chased on 16 November. Royal Manor's privacy notice already has a section on consultation recording and clinical scribe software, which can inform shared wording.</td></tr>
+      <tr><td>Data processor details, data processing agreement and sub-processor list</td><td><span class="tag t-amber">Requested</span></td><td>Requested from Chris on 16 November. Needed to complete practice DPIAs. Lexacom's DPIA already gives some processor details (Aprobrium Ltd, Azure UK hosting, ISO 27001, DSP Toolkit).</td></tr>
+      <tr><td>Data retention document</td><td><span class="tag t-amber">Requested</span></td><td>Requested from Chris on 16 November. Lexacom's DPIA refers to it, and practice DPIAs need it.</td></tr>
+      <tr><td>What changes in 26.4</td><td><span class="tag t-amber">Requested</span></td><td>Asked on 16 November, so practices know what to review when the reissued documents arrive.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="chose">
+  <h2><span class="n">5</span>How we chose Lexacom</h2>
+  <p>Over 18 months we evaluated ambient voice technology suppliers against the NHS AVT Supplier Registry, with Health Innovation Wessex involved from the start. Mark shortlisted four: Lexacom, TORTUS (via X-on Health), Tandem (via Accurx) and Heidi Health. The PCN Core and Federation meeting then selected Lexacom as the supplier to proceed with, and we published the evaluation on the national AVID forum.</p>
+  <p>All five practices have seen at least one demo, and we have seen Lexacom's current release (version 26.3). Version 26.4 is due in December.</p>
+</section>
+
+<section id="contacts">
+  <h2><span class="n">6</span>Contacts</h2>
+  <p>Lexacom is happy for these contact details to be shared for direct requests.</p>
+  <div class="contacts">
+    <div class="contact">
+      <h3>Chris Bohin</h3>
+      <p class="role">Lexacom, heads up governance</p>
+      <p>Email: <a href="mailto:chris.bohin@lexacom.co.uk">chris.bohin@lexacom.co.uk</a></p>
+      <p>Go to Chris for governance documentation (DCB0129, hazard log), DPIA templates, risk management workshops, and technical or cyber security questions.</p>
+    </div>
+    <div class="contact">
+      <h3>Simon Brady</h3>
+      <p class="role">Lexacom, Head of Sales</p>
+      <p>Email: <a href="mailto:simon.brady@lexacom.co.uk">simon.brady@lexacom.co.uk</a><br>Phone: <a href="tel:01295236931">01295 236931</a></p>
+      <p>Go to Simon for demos, trials, training, pricing and anything not covered above.</p>
+    </div>
+    <div class="contact">
+      <h3>Mark Winterburn</h3>
+      <p class="role">PCN, Digital &amp; Transformation Lead</p>
+      <p>Email: <a href="mailto:mark.winterburn@dorsetgp.nhs.uk">mark.winterburn@dorsetgp.nhs.uk</a></p>
+      <p>Coordinating the shared safety case core. Send updates and feedback for this page to Mark.</p>
+    </div>
+  </div>
+  <h3>Also supporting us</h3>
+  <ul>
+    <li><strong>Lexacom, Dr Neil Paul:</strong> Clinical Safety Officer.</li>
+    <li><strong>NHS Dorset, Alex Tealdi:</strong> Digital Clinical Safety Manager. Advising on our safety case, with a call booked for Friday 20 November. Has suggested sharing our learning through the Wessex HIN AVT Community of Practice.</li>
+    <li><strong>Health Innovation Wessex, Patrick Arnold:</strong> AVT lead, involved since the evaluation.</li>
+    <li><strong>Lexacom, Dr Andrew Whiteley:</strong> CEO.</li>
+  </ul>
+</section>
+
+<section id="pcn">
+  <h2><span class="n">7</span>PCN services</h2>
+  <p>Lexacom has confirmed PCN staff are covered when delivering services for participating practices. Our care coordinators and frailty team have long, complex phone calls with patients, families and carers, so they could benefit most.</p>
+  <p>Lexacom's capture audio feature records the computer's sound at the press of a button, so it works with our 3CX phones without integration. Because nothing is integrated, Lexacom does not record which phone systems its customers use, so it cannot point us to another PCN using it with 3CX.</p>
+  <p>Instead, Lexacom has offered a trial for these teams, with ambient templates built for their roles, and a demo for any staff who missed the earlier ones. Lexacom's own experience outside traditional clinical settings is that results are best when the service defines the outputs it needs before any pilot. That matches our plan: we will first agree with the teams what a good output looks like, and settle whose safety case covers staff working across several practices, before any trial.</p>
+</section>
+
+<section id="next">
+  <h2><span class="n">8</span>Next steps</h2>
+  <ul>
+    <li>Call with Alex Tealdi on Friday 20 November at 10:30 on the shared core, safety cover for PCN services, and sign-off timing around 26.4.</li>
+    <li>Share Weymouth Bay's early pilot feedback with Lexacom, and build setup checks into the shared core.</li>
+    <li>Receive the outstanding items from Chris Bohin (chased 16 November): DCB0160 examples, privacy and consent wording, data processing agreement, sub-processor list, data retention document, and what changes in 26.4.</li>
+    <li>Confirm a date in the week of 30 November for Chris's risk management workshop with CSOs who would like to attend.</li>
+    <li>Build the shared PCN safety case core, drawing on Weymouth Bay's and Royal Manor's work and checked against Lexacom's DCB0129 and hazard log, with input from NHS Dorset and Health Innovation Wessex.</li>
+    <li>Each practice CSO adopts the core, adds local detail and signs their DCB0160. Each practice completes its own DPIA and updates its privacy notice.</li>
+    <li>Go live one practice at a time, with Lexacom's training and patient materials in place.</li>
+    <li>Review sign-offs when Lexacom reissues its documents with 26.4 in December.</li>
+    <li>Scope Lexacom for PCN services with the care coordinator and frailty teams, starting with what they need from the output.</li>
+  </ul>
+</section>
+
+<section id="log">
+  <h2><span class="n">9</span>Update log</h2>
+  <dl class="log">
+    <dt>19 Nov 2026</dt>
+    <dd>Lexacom's per-practice quote added: PCN rate honoured for all four practices. Training confirmed as included, live on Teams and recorded, with CSOs encouraged to take part. Wyke Regis &amp; Lanehouse now shown as trial requested. Lexacom is following up with practices that are keen but have not yet ordered or booked a trial. Weymouth Bay's early pilot feedback added in a new section. Call with Alex Tealdi booked for Friday 20 November. Clarified that Royal Manor has also received Lexacom's documents, and that feedback on this page comes by email to Mark.</dd>
+    <dt>16 Nov 2026</dt>
+    <dd>Lexacom's DCB0129 safety case, hazard log, risk management plan and DPIA received, all due to be reissued with 26.4 in December. Lexacom's Clinical Safety Officer confirmed as Dr Neil Paul. CSO workshop available from 30 November. Links to NHS England's ambient scribe template DPIA added. Weymouth Bay's CSOs are refining their safety case through the pilot. Wording on sign-off updated to reflect the national standard and each CSO's role. Outstanding items chased with Chris, plus the data retention document and what changes in 26.4. Workshop pencilled in for the week of 30 November. Lexacom's documents shared with Weymouth Bay and Royal Manor. Combined list size sent to Lexacom for a quote, training followed up, and a call requested with Alex Tealdi at NHS Dorset.</dd>
+    <dt>11 Nov 2026</dt>
+    <dd>Royal Manor has agreed its drafts can inform the shared PCN core, and has shared its privacy notice wording, which already covers consultation recording and scribe software. Data processor details, data processing agreement and sub-processor list added to our requests to Lexacom, to complete the DPIAs.</dd>
+    <dt>10 Nov 2026</dt>
+    <dd>Royal Manor sent its Core update in advance: Lexacom ordered, and a draft DCB0160 and DPIA written and shared with Mark. With their agreement, both drafts will inform the shared PCN core alongside Weymouth Bay's safety case.</dd>
+    <dt>9 Nov 2026</dt>
+    <dd>Shared with practice managers and CSOs, with each practice asked to bring an update to Core on 11 November. Weymouth Bay's CSOs have completed a first version of their safety case (now being refined through the pilot), and the practice has asked Lexacom directly for the DPIA template and privacy notice wording. With their agreement, the shared PCN core will start from Weymouth Bay's safety case.</dd>
+    <dt>6 Nov 2026</dt>
+    <dd>Governance documents, DCB0160 examples, privacy and consent wording and workshop dates requested from Chris Bohin. Shared PCN DPIA added to the plan (since replaced by each practice completing its own DPIA as data controller). Alex Tealdi has offered to advise on the safety case. Weymouth Bay has had its training session.</dd>
+    <dt>4 Nov 2026</dt>
+    <dd>First version shared with PCN Leadership. Includes Lexacom's reply: Chris Bohin confirmed as governance contact, risk workshop offered, patient leaflets available, and a trial offered for PCN services in place of a 3CX reference site.</dd>
+  </dl>
+</section>
+
+</main>
+
+<footer>
+  <p><a class="mailbtn alt" href="mailto:mark.winterburn@dorsetgp.nhs.uk?subject=Lexacom%20readiness%20page">Email Mark with an update or feedback</a></p>
+  <p>mark.winterburn@dorsetgp.nhs.uk</p>
+  Prepared by Mark Winterburn, Digital &amp; Transformation Lead, Weymouth &amp; Portland PCN.</footer>
+
 </body>
 </html>
